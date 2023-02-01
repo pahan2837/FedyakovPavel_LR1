@@ -126,6 +126,7 @@ namespace WiFiScanBrute
             //Запомним выбранную строку
             int index = dataGridView1.SelectedRows[0].Index;
 
+
             //Проверим данные в таблицы
             if (dataGridView1.Rows[index].Cells[0].Value == null ||
                 dataGridView1.Rows[index].Cells[1].Value == null ||
@@ -140,6 +141,7 @@ namespace WiFiScanBrute
                 return;
             }
 
+
             // Считаем данные
             string id = dataGridView1.Rows[index].Cells[0].Value.ToString();
             string name = dataGridView1.Rows[index].Cells[1].Value.ToString();
@@ -150,9 +152,11 @@ namespace WiFiScanBrute
             string speed = dataGridView1.Rows[index].Cells[6].Value.ToString();
             string signal = dataGridView1.Rows[index].Cells[7].Value.ToString();
 
+
             // Создаем соеденение
             string connectionString = "provider=Microsoft.Jet.OLEDB.4.0;Data Source=BD.mdb";  // строка соеденения
             OleDbConnection dbConnection = new OleDbConnection(connectionString);             // создаем соеденение
+
 
             dbConnection.Open();
             string query = $"delete from Роутеры where Код = "+ id + "";
